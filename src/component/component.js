@@ -24,9 +24,9 @@ export const Component = () => {
             <IonRadio title="normal" slot="start" value="" />
           </IonItem>
 
-          <IonItem>
-            <IonLabel>Closest to you</IonLabel>
-            <IonRadio title="distance" slot="start" value="Distance" />
+          <IonItem title="distanceItem">
+            <IonLabel title="distanceLabel">Closest to you</IonLabel>
+            <IonRadio title="distanceRadio" slot="start" value="Distance" />
           </IonItem>
 
           <IonItem>
