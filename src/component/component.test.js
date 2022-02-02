@@ -8,15 +8,19 @@ const setup = async () => {
   const utils = render(<Component />);
 
   const normal = await utils.findByTitle("normal");
-  const distance = await utils.findByTitle("distance");
+  const distanceRadio = await utils.findByTitle("distanceRadio");
+  const distanceItem = await utils.findByTitle("distanceItem");
+  const distanceLabel = await utils.findByTitle("distanceLabel");
 
   const result = await utils.findByTestId("result");
 
   return {
     ...utils,
     normal,
-    distance,
     result,
+    distanceRadio,
+    distanceItem,
+    distanceLabel,
   };
 };
 
@@ -26,9 +30,12 @@ describe("Shift list sorting", () => {
     expect(normal).toBeInTheDocument();
   });
   it("can select other options", async () => {
-    const { distance, result } = await setup();
+    const { distanceItem, distanceLabel, distanceRadio, result } =
+      await setup();
 
-    ionFireEvent.click(distance);
+    ionFireEvent.click(distanceItem);
+    ionFireEvent.click(distanceRadio);
+    ionFireEvent.click(distanceLabel);
 
     expect(result).toHaveTextContent("Distance");
   });
